@@ -1,0 +1,28 @@
+{
+    "name": "manadinho/lara-translate",
+    "description": "Use lara-translate to manage translations and translation of keys in one place",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Manadinho\\LaraTranslate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "muhammad imran",
+            "email": "mimranisrar6@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manadinho\\LaraTranslate\\LaraTranslateServiceProvider"
+            ]
+        }
+    }
+}
