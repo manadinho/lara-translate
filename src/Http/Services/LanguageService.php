@@ -28,22 +28,22 @@ class LanguageService {
 
     private function getTranslationLangFiles()
     {
-        $langPath = resource_path('lang');
+        $langPath = $this->getTranslationFilesPath();
 
         return collect(File::files($langPath));
     }
 
     public function getLangFileContent($file)
     {
-        $file_path = resource_path('lang')."/$file.json";
-        $file_content = json_decode(File::get(resource_path('lang')."/$file.json"));
+        $file_path = $this->getTranslationFilesPath()."/$file.json";
+        $file_content = json_decode(File::get($this->getTranslationFilesPath()."/$file.json"));
         $file_content = ($file_content) ? $file_content: new \stdClass();
         return $file_content;
     }
 
     public function addNewTranslationInLangFile($file, $key_values_arr)
     {
-        $file_path = resource_path('lang')."/$file.json";
+        $file_path = $this->getTranslationFilesPath()."/$file.json";
         $file_content = $this->getLangFileContent($file);
         $file_content = ($file_content) ? $file_content: [];
 
@@ -56,7 +56,7 @@ class LanguageService {
 
     public function saveLangFile($file, $file_content)
     {
-        $file_path = resource_path('lang')."/$file.json";
+        $file_path = $this->getTranslationFilesPath()."/$file.json";
         File::put($file_path, json_encode($file_content, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
@@ -69,6 +69,17 @@ class LanguageService {
         }
 
         return $response->object()->matches[0]->translation;
+    }
+
+    private function getTranslationFilesPath()
+    {
+        if(config('laraTranslate.lang_directory_path') != "default") {
+            return config('laraTranslate.lang_directory_path');
+        }
+        
+        $oldVersionPath = resource_path('lang');
+        $newVersionPath = base_path('lang');
+        return is_dir($newVersionPath) ? $newVersionPath : $oldVersionPath;
     }
 
     private function getLanguageName($lang)

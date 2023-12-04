@@ -60,7 +60,7 @@ Add middlewares that you want to apply on the package routes.
 ```
 uri_start [string]
 ```
-This is th first segment of URI. By default the first segment of URI will be 'lara-translate'. e.g. http://{project-domain}/lara-translate/ . But you can also customize this here.
+This is the first segment of URI. By default the first segment of URI will be 'lara-translate'. e.g. http://{project-domain}/lara-translate/ . But you can also customize this here.
 
 ```
 translation_methods [string]
@@ -71,6 +71,11 @@ The methods to use when searching for missing translation keys in project.
 scan_paths [array]
 ```
 Paths of the directories that need to be used to search missing translation keys. 
+
+```
+lang_directory_path [string]
+```
+Path to lang files. By default it will use default paths for Laravel 10 or older versions. But if you have some different path you can provide it here.
 
 ### Artisan Commands
 The package includes Artisan commands to manage the translations.

@@ -73,5 +73,17 @@ return [
     |
     */
     'scan_paths' => [app_path(), resource_path()."/views"],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Lang directory paths
+    |--------------------------------------------------------------------------
+    |
+    | It will try to detect the lang directory path automatically but if you
+    | have path different from standard path then you can specify the path here
+    |
+    */
+
+    'lang_directory_path' => 'default',
     
 ];
