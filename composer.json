@@ -2,7 +2,7 @@
     "name": "manadinho/lara-translate",
     "description": "Use lara-translate to manage translations and translation of keys in one place",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
